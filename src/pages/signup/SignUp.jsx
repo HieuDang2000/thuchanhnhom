@@ -55,7 +55,7 @@ const SignUp = () => {
                             </div>
                             <div className='pl-4 mt-1 text-end pr-10'>
                                 <h4 className='text-black/50 font-semibold'>Already an account?
-                                    <Link to='/englishqnu' className='underline underline-offset-1 text-sky-600  decoration-sky-600 hover:opacity-70'>Login now</Link>
+                                    <Link to='/' className='underline underline-offset-1 text-sky-600  decoration-sky-600 hover:opacity-70'>Login now</Link>
                                 </h4>
                             </div>
                         </form>
