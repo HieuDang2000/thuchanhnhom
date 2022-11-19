@@ -1,11 +1,11 @@
 import React from "react";
 import images from "../../images/images";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./main.scss";
 
 class Main extends React.Component {
   state = { data: {}, user: "", pass: "" };
-
   componentDidMount() {
     const APIUrl =
       "https://script.google.com/macros/s/AKfycbyXbqQ3S6WDZQaLynafuORm8CIxAFmIv_BGx2V0K4TAF4U4DRJLtAnijWRIfHCdJN5Cgg/exec";
@@ -22,16 +22,17 @@ class Main extends React.Component {
     this.setState({ [name]: value });
   };
   handleSubmit = (event) => {
+      event.preventDefault();
     const {data,user,pass} = this.state;
     const checkUserResult = data.find((u) => u.user === user);
     if (checkUserResult && checkUserResult.pass === pass) {
       alert("Login successful");
+    //   useNavigate('http://localhost:3000/home');
     } 
     else {
       this.setState({ user: "", pass: "" });
       alert("Login Fail");
     }
-    event.preventDefault();
   };
   render() {
     const { user, pass } = this.state;
@@ -83,7 +84,7 @@ class Main extends React.Component {
                     <input
                       className="w-[420px] placeholder:text-slate-400 placeholder:text-start placeholder:font-semibold translate-y-1/2 font-semibold text-slate-500 rounded-lg p-[10px] mt-1 border-2 border-slate-500"
                       placeholder="Enter 6 character or more"
-                      type="text"
+                      type="password"
                       name="pass"
                       value={pass}
                       onChange={this.handleChange}
