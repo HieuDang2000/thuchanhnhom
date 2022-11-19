@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.479cce4e.css",
-    "main.js": "/static/js/main.3a6225e8.js",
-    "static/media/Nữ kiếm sĩ_ (1).jpg": "/static/media/Nữ kiếm sĩ_ (1).8a50743372a709347a94.jpg",
-    "static/media/z3858684806105_jpg": "/static/media/z3858684806105_b233cdb04bc0a87aa066f3f8b1246e3a.81acb0d96d48aa58e36a.jpg",
-    "index.html": "/index.html",
-    "main.479cce4e.css.map": "/static/css/main.479cce4e.css.map",
-    "main.3a6225e8.js.map": "/static/js/main.3a6225e8.js.map"
+    "main.css": "/thuchanhnhom/static/css/main.479cce4e.css",
+    "main.js": "/thuchanhnhom/static/js/main.aa4f4932.js",
+    "static/media/Nữ kiếm sĩ_ (1).jpg": "/thuchanhnhom/static/media/Nữ kiếm sĩ_ (1).8a50743372a709347a94.jpg",
+    "static/media/z3858684806105_jpg": "/thuchanhnhom/static/media/z3858684806105_b233cdb04bc0a87aa066f3f8b1246e3a.81acb0d96d48aa58e36a.jpg",
+    "index.html": "/thuchanhnhom/index.html",
+    "main.479cce4e.css.map": "/thuchanhnhom/static/css/main.479cce4e.css.map",
+    "main.aa4f4932.js.map": "/thuchanhnhom/static/js/main.aa4f4932.js.map"
   },
   "entrypoints": [
     "static/css/main.479cce4e.css",
-    "static/js/main.3a6225e8.js"
+    "static/js/main.aa4f4932.js"
   ]
 }
