@@ -58,9 +58,9 @@ const Main = () => {
       alert("Login successful");
       localStorage.setItem("user", account.user);
       localStorage.setItem("units", JSON.stringify(unit));
-      // console.log(unit);
-      // const units = JSON.parse(localStorage.getItem("units"));
-      // console.log(units);
+      console.log(unit);
+      const units = JSON.parse(localStorage.getItem("units"));
+      console.log(units);
       navigate("/home");
     } else {
       alert("Login failed");
