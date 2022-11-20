@@ -27,7 +27,7 @@ const HeaderContent = ({ id }) => {
     const [idlink, setIdlink] = useState(Number(id));
     const [visible, setVisible] = useState(false);
 
-    const idnext = () => {if(Number(id) < 4) { const number = Number(id) + 1; return number} else return 4; };
+    const idnext = () => {if(Number(id) < 8) { const number = Number(id) + 1; return number} else return 8; };
     const idback = () => {if(Number(id) > 1) { const number = Number(id) - 1; return number} else return 1; };
 
     const linkNext = '/unit/' + idnext();
@@ -51,9 +51,9 @@ const HeaderContent = ({ id }) => {
         <div className='relative'>
             <div className='fixed w-full h-12 bg-neutral-400 top-0 left-0 right-0 flex items-center justify-between px-6 z-1'>
                 <div className='flex'>
-                    <i className='text-3xl px-2 font-medium text-black' onClick={() => window.alert("back to previous lesson")}><Link to={linkback}><RiSkipBackMiniFill /></Link></i>
+                    <i className='text-3xl px-2 font-medium text-black' ><Link to={linkback}><RiSkipBackMiniFill /></Link></i>
                     <i className='text-3xl px-2 font-medium text-black'><Link to='/home'><RiHomeLine/></Link></i>
-                    <i className='text-3xl px-2 font-medium text-black' onClick={() => window.alert("next to the lesson")}><Link to={linkNext}><MdSkipNext /></Link></i>
+                    <i className='text-3xl px-2 font-medium text-black' ><Link to={linkNext}><MdSkipNext /></Link></i>
                 </div>
                 <input
                     type="text"

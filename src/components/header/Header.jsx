@@ -47,7 +47,7 @@ const Header = () => {
                     className='w-[300px] h-10 p-4 rounded-2xl placeholder:font-semibold font-semibold text-black input__search'
                 />
                 <div className='flex items-center h-full w-[120px] justify-around'>
-                    <h3 className='text-black font-semibold'>Hello user</h3>
+                    <h3 className='text-black font-semibold'>Hello {localStorage.getItem("user")}</h3>
                     <Tippy
                         onClickOutside={hide}
                         interactive='true'
