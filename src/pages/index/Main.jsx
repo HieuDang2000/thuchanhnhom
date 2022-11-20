@@ -16,10 +16,15 @@ import "./main.scss";
 //     console.log(data);
 // }
 const Main = () => {
+
   // localStorage.setItem("user", "nouser")
   const [data, setdata] = useState();
   const [unit, setunit] = useState();
   localStorage.clear();
+  localStorage.setItem(
+    "randomQuizUnit",
+    JSON.stringify([{ unit: 999, check: false, random: [1, 2, 3, 4, 5] }])
+  );
   const navigate = useNavigate();
   const pass = useRef(),
     user = useRef();
@@ -60,7 +65,7 @@ const Main = () => {
       localStorage.setItem("units", JSON.stringify(unit));
       console.log(user);
       const units = JSON.parse(localStorage.getItem("units"));
-      console.log(units);
+      console.log( units);
       navigate("/home");
     } else {
       alert("Login failed");

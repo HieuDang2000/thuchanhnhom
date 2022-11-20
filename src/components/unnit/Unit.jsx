@@ -6,7 +6,7 @@ import { BsCircle } from 'react-icons/bs';
 const Unit = ({item}) => {
 
     const linkPath = '/unit/' + item.id;
-    const idReal = item.id - 1;
+    // const idReal = item.id - 1;
     return (
         <Link to={linkPath}>
             <div className='border-b-2 py-2 bg-slate-100 px-4 hover:bg-opacity-40'>

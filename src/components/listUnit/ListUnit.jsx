@@ -3,32 +3,7 @@ import Unit from "../unnit/Unit";
 import axios from "axios";
 import { useNavigate, useLocation, Navigate } from "react-router-dom";
 
-const listUnit = [
-  {
-    id: 1,
-    name: "unit 1",
-    overview: "Begin: Environment xxxxxxxxxxxx",
-    check: true,
-  },
-  {
-    id: 2,
-    name: "unit 2",
-    overview: "Begin: Environment xxxxxxxxxxxx",
-    check: true,
-  },
-  {
-    id: 3,
-    name: "unit 3",
-    overview: "Begin: Environment xxxxxxxxxxxx",
-    check: false,
-  },
-  {
-    id: 4,
-    name: "unit 4",
-    overview: "Begin: Environment xxxxxxxxxxxx",
-    check: false,
-  },
-];
+
 const ListUnit = () => {
   // const [data, setdata] = useState();
   // const dataLocal = JSON.parse(localStorage.getItem("data"));
