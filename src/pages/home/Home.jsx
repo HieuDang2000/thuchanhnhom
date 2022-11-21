@@ -26,6 +26,7 @@ const Home = () => {
     const user = localStorage.getItem('user')
     if(!user) return <Navigate replace to="/signin" />
     var str = localStorage.getItem("learned")
+    if(str){
     str = str.split("-");
     var diemtb = 0, i = 0;
     str.map((s)=>{
@@ -35,7 +36,7 @@ const Home = () => {
       }
     })
     diemtb = diemtb/i;
-
+    }
     if(user)
     return (
       <>

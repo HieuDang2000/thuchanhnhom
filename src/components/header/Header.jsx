@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
 import { MdAccountCircle } from "react-icons/md";
 import { CiLogout } from "react-icons/ci";
-import TextField from "@mui/material/TextField";
 import "./header.scss";
 
 const MENU_ITEMS = [
