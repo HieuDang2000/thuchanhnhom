@@ -19,7 +19,7 @@ const MENU_ITEMS = [
     {
         icon: <CiLogout />,
         title: 'Log out',
-        to: '/signin'
+        to: '/'
     }
 ]
 
