@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AiFillCheckCircle } from 'react-icons/ai';
 import { BsCircle } from 'react-icons/bs';
 
-const Unit = ({item}) => {
+const Unit = ({item,check}) => {
 
     const linkPath = '/unit/' + item.id;
     // const idReal = item.id - 1;
@@ -14,7 +14,7 @@ const Unit = ({item}) => {
                 <div className='ml-4 w-full flex items-center justify-between'>
                     <h5 className='text-xl'>Introducing to {item.unit}</h5>
                     {
-                        item.check ? <AiFillCheckCircle className='font-bold mr-40' /> : <BsCircle className='font-bold mr-40'/>
+                        !check ? <AiFillCheckCircle className='font-bold mr-40' /> : <BsCircle className='font-bold mr-40'/>
                     }
                 </div>
             </div>

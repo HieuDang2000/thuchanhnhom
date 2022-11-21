@@ -24,6 +24,18 @@ const Home = () => {
     // const check = false;
     // check = data.check === null
     const user = localStorage.getItem('user')
+    if(!user) return <Navigate replace to="/signin" />
+    var str = localStorage.getItem("learned")
+    str = str.split("-");
+    var diemtb = 0, i = 0;
+    str.map((s)=>{
+      if(s != 'n'){
+        diemtb += Number(s);
+        i++;
+      }
+    })
+    diemtb = diemtb/i;
+
     if(user)
     return (
       <>
@@ -34,10 +46,13 @@ const Home = () => {
             </div>
             <div className="model__navbar">
               <div className="text-center pt-24">
-                <h1 className="text-xl font-semibold">
-                  Learning progress: 2/24 {user}
+              <h1 className="text-xl font-semibold">
+                  {user}
                 </h1>
-                <h1 className="text-xl font-semibold">Average Point: 86/100</h1>
+                <h1 className="text-xl font-semibold">
+                  Learning progress:  {i}/8 
+                </h1>
+                <h1 className="text-xl font-semibold">Average Point: {diemtb.toFixed(2)}/10</h1>
               </div>
               <div className="flex justify-center pt-5">
                 <img

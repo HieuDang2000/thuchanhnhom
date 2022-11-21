@@ -70,7 +70,7 @@ const Content = () => {
           i++;
         }
       }
-      const obj2 = { unit: id, check: false, random: random, result: result };
+      const obj2 = { unit: id, check: false, random: random, result: result, pass: false};
       localStorage.setItem("randomQuizUnit", JSON.stringify([...rdfl, obj2]));
       console.log(obj2);
     } else {
@@ -105,7 +105,7 @@ const Content = () => {
             i++;
           }
         }
-        const obj2 = { unit: id, check: false, random: random, result: result };
+        const obj2 = { unit: id, check: false, random: random, result: result, pass: false };
         var foundI = rdfl.findIndex((x) => x.unit == id);
         rdfl[foundI] = obj2;
         localStorage.setItem("randomQuizUnit", JSON.stringify(rdfl));

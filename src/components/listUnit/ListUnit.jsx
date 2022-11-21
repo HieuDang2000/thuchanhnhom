@@ -34,11 +34,15 @@ const ListUnit = () => {
   // }, []);
   const units = JSON.parse(localStorage.getItem("units"));
   console.log(units);
+  var str = localStorage.getItem("learned")
+  str = str.split("-");
   return (
     <>
       {units.map((item) => {
+        console.log(str);
         console.log(item.id);
-        return <Unit item={item} />;
+        console.log(str[item.id-1])
+        return <Unit item={item} key={item.id} check = {str[item.id-1] === 'n'}/>;
       })}
     </>
   );

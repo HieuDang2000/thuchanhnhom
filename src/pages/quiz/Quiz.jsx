@@ -1,28 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Header from "../../components/header/Header";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import "./quiz.scss";
 import { MdViewArray } from "react-icons/md";
-import { x } from "tar";
 
+const Quiz = () => {
+  const navigate = useNavigate();
 
-
-const Quiz = ({ seconds = 600 }) => {
-  const [timeLeft, setTimeLeft] = useState(60);
-  
-  // const submit = () => {
-
-  // }
+  const [timeLeft, setTimeLeft] = useState(3);
 
   useEffect(() => {
     // exit early when we reach 0
     if (!timeLeft) {
-      change.check = false;
-      console.log(change);
-      randomIndex[foundI] = change;
-      localStorage.setItem("randomQuizUnit", JSON.stringify(randomIndex));
-      // submit();
+      submitAnswer();
       return;
     }
 
@@ -50,6 +41,7 @@ const Quiz = ({ seconds = 600 }) => {
   take1 = take1.split("(v)").join(",");
   take1 = take1.split("(adv)").join(",");
   take1 = take1.split("(adj)").join(",");
+  take1 = take1.split("(exp)").join(",");
   take1 = take1.split("\n").join(",");
   take1 = take1.split(",");
   console.log(take1);
@@ -74,6 +66,59 @@ const Quiz = ({ seconds = 600 }) => {
   var random = change.random;
   console.log(random);
 
+  var [c, setc] = useState([99, 99, 99, 99, 99]);
+  var subc = [];
+  const submitAnswer = () => {
+    var score = 0;
+    c.map((c, i) => {
+      if (change.random[i][c] == change.result[i]) score += 2;
+    });
+    if (score > 5) {
+      random.pass = true;
+      change.check = false;
+      console.log(random);
+      localStorage.setItem("randomQuizUnit", JSON.stringify(random));
+      //lưu vào local giá trị pass
+      randomIndex[foundI] = change;
+      console.log(change)
+      console.log(randomIndex);
+      localStorage.setItem("randomQuizUnit", JSON.stringify(randomIndex));
+      var str = localStorage.getItem("learned");
+      str = str.split("-");
+      str[id-1] = score;
+      str = str.join("-");
+      localStorage.setItem("learned", str);
+      console.log(localStorage.getItem("learned"));
+      //chuyển trang
+      alert("Chúc mừng bạn được: " + score + "điểm \nBạn đã qua bài");
+      navigate("/home");    
+    } else {
+      //lưu vào local giá trị pass
+      change.check = false;
+      randomIndex[foundI] = change;
+      console.log(change)
+      localStorage.setItem("randomQuizUnit", JSON.stringify(randomIndex));
+      var str = localStorage.getItem("learned");
+      str = str.split("-");
+      str[id-1] = 'n';
+      str = str.join("-");
+      localStorage.setItem("learned", str);
+      console.log(localStorage.getItem("learned"));
+      //chuyển trang
+      alert("Wow, bạn đạt được: " + score + "điểm \nBạn đã Rớt");
+      navigate("/home");
+    }
+  };
+  console.log(randomIndex);
+  //c[Number(e.target.value)] = Number(e.target.id)
+  const onChange = (e) => {
+    subc = c;
+    subc[Number(e.target.value)] = e.target.id;
+    setc(subc);
+
+    console.log("onchange" + e.target.id);
+    console.log(c);
+  };
   return (
     <>
       <Header />
@@ -88,8 +133,12 @@ const Quiz = ({ seconds = 600 }) => {
               Time Left: {Math.floor(timeLeft / 60)}:{timeLeft % 60}{" "}
             </p>
             <div>
-              <Link>
-                <button onClick className="mr-40 w-[100px] py-1 px-4 mx-auto bg-slate-400 font-semibold text-xl rounded-3xl">
+              <Link to="/">
+                <button
+                  type="submit"
+                  className="mr-40 w-[100px] py-1 px-4 mx-auto bg-slate-400 font-semibold text-xl rounded-3xl"
+                  onClick={submitAnswer}
+                >
                   Submit
                 </button>
               </Link>
@@ -101,58 +150,62 @@ const Quiz = ({ seconds = 600 }) => {
                 <h2>
                   Question {id + 1}: Nghĩa của từ {english[item[0]]} là
                 </h2>
-                <form action="" className="flex flex-col">
+                <form className="flex flex-col">
                   <div className="w-[60%] bg-slate-300 flex items-center py-4 my-1 rounded-2xl">
-                    <div className= "w-[25%]"> 
-                    <input
-                      className="mx-2"
-                      type="radio"
-                      id="css" 
-                      name="fav_language"
-                      value={item[0]}
-                    />
-                    <label htmlFor="" className="text-lg text-center h-full">
-                      {vn[item[1]]}
-                    </label>
+                    <div className="w-[25%]">
+                      <input
+                        className="mx-2"
+                        type="radio"
+                        id="1"
+                        name="fav_language"
+                        value={id}
+                        onChange={onChange}
+                      />
+                      <label htmlFor="" className="text-lg text-center h-full">
+                        {vn[item[1]]}
+                      </label>
                     </div>
-                    <div className= "w-[25%]"> 
-                    <input
-                      className="mx-2 "
-                      type="radio"
-                      id="css"
-                      name="fav_language"
-                      value={item[2]}
-                    />
-                    <label htmlFor="" className="text-lg">
-                      {vn[item[2]]}
-                    </label>
+                    <div className="w-[25%]">
+                      <input
+                        className="mx-2 "
+                        type="radio"
+                        id="2"
+                        name="fav_language"
+                        value={id}
+                        onChange={onChange}
+                      />
+                      <label htmlFor="" className="text-lg">
+                        {vn[item[2]]}
+                      </label>
                     </div>
-                    <div className= "w-[25%]"> 
-                    <input
-                      className="mx-2"
-                      type="radio"
-                      id="css"
-                      name="fav_language"
-                      value={item[3]}
-                    />
-                    <label htmlFor="" className="text-lg">
-                      {vn[item[3]]}
-                    </label>
+                    <div className="w-[25%]">
+                      <input
+                        className="mx-2"
+                        type="radio"
+                        id="3"
+                        name="fav_language"
+                        value={id}
+                        onChange={onChange}
+                      />
+                      <label htmlFor="" className="text-lg">
+                        {vn[item[3]]}
+                      </label>
                     </div>
-                    <div className= "w-[25%]"> 
-                    <input
-                      className="mx-2"
-                      type="radio"
-                      id="css"
-                      name="fav_language"
-                      value={item[4]}
-                    />
-                    <label htmlFor="" className="text-lg">
-                      {vn[item[4]]}
-                    </label>
+                    <div className="w-[25%]">
+                      <input
+                        className="mx-2"
+                        type="radio"
+                        id="4"
+                        name="fav_language"
+                        value={id}
+                        onChange={onChange}
+                      />
+                      <label htmlFor="" className="text-lg">
+                        {vn[item[4]]}
+                      </label>
                     </div>
                   </div>
-            </form>
+                </form>
               </div>
             ))}
           </div>

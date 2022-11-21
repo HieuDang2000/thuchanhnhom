@@ -62,6 +62,7 @@ const Main = () => {
       // setauth({user:username, check:true});
       alert("Login successful");
       localStorage.setItem("user", account.user);
+      localStorage.setItem("learned", account.check);
       localStorage.setItem("units", JSON.stringify(unit));
       console.log(user);
       const units = JSON.parse(localStorage.getItem("units"));
