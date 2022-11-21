@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/thuchanhnhom/static/css/main.d4cb8bb7.css",
-    "main.js": "/thuchanhnhom/static/js/main.f85b449d.js",
+    "main.css": "/thuchanhnhom/static/css/main.474afc61.css",
+    "main.js": "/thuchanhnhom/static/js/main.50d7d58a.js",
     "static/media/Nữ kiếm sĩ_ (1).jpg": "/thuchanhnhom/static/media/Nữ kiếm sĩ_ (1).8a50743372a709347a94.jpg",
     "static/media/z3858684806105_jpg": "/thuchanhnhom/static/media/z3858684806105_b233cdb04bc0a87aa066f3f8b1246e3a.81acb0d96d48aa58e36a.jpg",
     "index.html": "/thuchanhnhom/index.html",
-    "main.d4cb8bb7.css.map": "/thuchanhnhom/static/css/main.d4cb8bb7.css.map",
-    "main.f85b449d.js.map": "/thuchanhnhom/static/js/main.f85b449d.js.map"
+    "main.474afc61.css.map": "/thuchanhnhom/static/css/main.474afc61.css.map",
+    "main.50d7d58a.js.map": "/thuchanhnhom/static/js/main.50d7d58a.js.map"
   },
   "entrypoints": [
-    "static/css/main.d4cb8bb7.css",
-    "static/js/main.f85b449d.js"
+    "static/css/main.474afc61.css",
+    "static/js/main.50d7d58a.js"
   ]
 }
