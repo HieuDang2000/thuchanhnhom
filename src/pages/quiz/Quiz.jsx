@@ -8,7 +8,7 @@ import { MdViewArray } from "react-icons/md";
 const Quiz = () => {
   const navigate = useNavigate();
 
-  const [timeLeft, setTimeLeft] = useState(3);
+  const [timeLeft, setTimeLeft] = useState(15);
 
   useEffect(() => {
     // exit early when we reach 0
