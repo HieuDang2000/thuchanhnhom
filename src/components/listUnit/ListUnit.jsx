@@ -32,6 +32,8 @@ const ListUnit = () => {
   //   };
   //   fetchData();
   // }, []);
+  console.log("hien thi thong tin user dang dang nhap");
+  console.log(localStorage.getItem("user"));
   const units = JSON.parse(localStorage.getItem("units"));
   console.log(units);
   var str = localStorage.getItem("learned")

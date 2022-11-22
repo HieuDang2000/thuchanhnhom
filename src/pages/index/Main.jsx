@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import images from "../../images/images";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 import axios from "axios";
 import "./main.scss";
 
@@ -16,42 +16,46 @@ import "./main.scss";
 //     console.log(data);
 // }
 const Main = () => {
-
   // localStorage.setItem("user", "nouser")
   const [data, setdata] = useState();
   const [unit, setunit] = useState();
+
+  const navigate = useNavigate();
+  const pass = useRef(),
+    user = useRef();
+
+  useEffect(() => {
+    const APIUrl =
+      "https://script.google.com/macros/s/AKfycbyXbqQ3S6WDZQaLynafuORm8CIxAFmIv_BGx2V0K4TAF4U4DRJLtAnijWRIfHCdJN5Cgg/exec";
+    fetch(APIUrl)
+      .then((res) => res.json())
+      .then((json) => {
+        setdata(json);
+      });
+    console.log(data);
+  }, []);
+
+  const Uniturl =
+    "https://script.google.com/macros/s/AKfycbxpVOXBPC9geWFveLX7k5MFvPYu30QrY2GU3IIIuZKajcBsYyHQ4nQ5DMG6uqe_9CBg/exec";
+
+  useEffect(() => {
+    fetch(Uniturl)
+      .then((res) => res.json())
+      .then((json) => {
+        setunit(json);
+      });
+    console.log(unit);
+  }, []);
+  //if user == null logout
+  console.log("hien thi thong tin user dang dang nhap");
+  console.log(localStorage.getItem("user"));
+  if (localStorage.getItem("user")) return <Navigate to="/home" />;
   localStorage.clear();
   localStorage.setItem(
     "randomQuizUnit",
     JSON.stringify([{ unit: 999, check: false, random: [1, 2, 3, 4, 5] }])
   );
-  const navigate = useNavigate();
-  const pass = useRef(),
-    user = useRef();
-
-    useEffect(() => {
-      const APIUrl =
-    "https://script.google.com/macros/s/AKfycbyXbqQ3S6WDZQaLynafuORm8CIxAFmIv_BGx2V0K4TAF4U4DRJLtAnijWRIfHCdJN5Cgg/exec";
-  fetch(APIUrl)
-    .then((res) => res.json())
-    .then((json) => {
-      setdata(json);
-    });
-  console.log(data);
-}, []);
-
-
-  const Uniturl ="https://script.google.com/macros/s/AKfycbxpVOXBPC9geWFveLX7k5MFvPYu30QrY2GU3IIIuZKajcBsYyHQ4nQ5DMG6uqe_9CBg/exec";
-
-  useEffect(() => {
-    fetch(Uniturl)
-    .then((res) => res.json())
-    .then((json) => {
-      setunit(json);
-    });
-  console.log(unit);
-  }, []);
-  
+  //done
   const handleSubmit = (e) => {
     e.preventDefault();
     const account = data.find((u) => {
@@ -62,17 +66,17 @@ const Main = () => {
       // setauth({user:username, check:true});
       alert("Login successful");
       localStorage.setItem("user", account.user);
+      localStorage.setItem("pass", account.pass);
       localStorage.setItem("learned", account.check);
       localStorage.setItem("units", JSON.stringify(unit));
       console.log(user);
       const units = JSON.parse(localStorage.getItem("units"));
-      console.log( units);
+      console.log(units);
       navigate("/home");
     } else {
       alert("Login failed");
     }
   };
-
   return (
     <div>
       <div className="w-full h-screen relative">

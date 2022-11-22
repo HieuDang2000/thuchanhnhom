@@ -23,6 +23,7 @@ const Home = () => {
   // const data =  useLocation().state;
   // const check = false;
   // check = data.check === null
+
   const user = localStorage.getItem("user");
   if (!user) return <Navigate replace to="/" />;
   var str = localStorage.getItem("learned");
@@ -38,6 +39,7 @@ const Home = () => {
     });
     diemtb = diemtb / i;
   }
+  console.log(localStorage.getItem("learned"));
   if (user)
     return (
       <>
@@ -48,7 +50,7 @@ const Home = () => {
             </div>
             <div className="model__navbar">
               <div className="text-center pt-24">
-                <h1 className="text-xl font-semibold">{user}</h1>
+                <h1 className="text-xl font-semibold usertaolao">{user}</h1>
                 <h1 className="text-xl font-semibold">
                   Learning progress: {i}/8
                 </h1>
@@ -56,12 +58,17 @@ const Home = () => {
                   Average Point: {diemtb.toFixed(2)}/10
                 </h1>
               </div>
-              <div className="flex justify-center pt-5">
-                <img
-                  className="user__avatar"
-                  src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"
-                  alt="user"
-                />
+              <div className="einstein">
+                <div className="flex justify-center pt-5">
+                  <img
+                    className="user__avatar"
+                    src="https://kenh14cdn.com/k:thumb_w/600/TL38uwXjcccccccccccccbWaiFYccc/Image/2013/12/1-93680/buc-anh-thay-doi-nhan-thuc-cua-cong-chung-ve-thien-tai-einstein.jpg"
+                    alt="user"
+                  />
+                </div>
+                <h1 className="text-xl text-center font-semibold">
+                  Học, học nữa, học mãi
+                </h1>
               </div>
             </div>
           </div>

@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
 import { MdAccountCircle } from "react-icons/md";
 import { CiLogout } from "react-icons/ci";
+import { useNavigate, Navigate } from "react-router-dom";
+
 import "./header.scss";
 
 const MENU_ITEMS = [
@@ -20,11 +22,21 @@ const MENU_ITEMS = [
 ];
 
 const Header = () => {
+  const navigate = useNavigate();
   const [visible, setVisible] = useState(false);
 
   const show = () => setVisible(true);
   const hide = () => setVisible(false);
 
+  const onChange = (e) => {
+    e.preventDefault();
+    const user = localStorage.getItem("user");
+    const learned = localStorage.getItem("learned");
+    console.log("da clear ")
+    fetch('https://script.google.com/macros/s/AKfycbyXbqQ3S6WDZQaLynafuORm8CIxAFmIv_BGx2V0K4TAF4U4DRJLtAnijWRIfHCdJN5Cgg/exec'+'?q='+user +'-'+learned)
+    localStorage.clear();
+    navigate('/');
+  };
   const renderItems = () => {
     return MENU_ITEMS.map((item, i) => (
       <button
@@ -48,13 +60,13 @@ const Header = () => {
         <Link to="/home">
           <h1 className="text-xl font-medium text-black">English Web Quiz</h1>
         </Link>
-        
-          <input
-            type="text"
-            placeholder="Search"
-            className="w-[300px] h-10 p-4 rounded-2xl placeholder:font-semibold font-semibold text-black input__search"
-          />
-       
+
+        <input
+          type="text"
+          placeholder="Search"
+          className="w-[300px] h-10 p-4 rounded-2xl placeholder:font-semibold font-semibold text-black input__search"
+        />
+
         <div className="flex items-center h-full w-[120px] justify-around">
           <h3 className="text-black font-semibold">
             Hello {localStorage.getItem("user")}
@@ -70,7 +82,30 @@ const Header = () => {
                 tabIndex="-1"
                 {...attrs}
               >
-                {renderItems()}
+                <button className="w-full h-[50px] flex items-center justify-between bg-white text-base font-semibold">
+                  <Link
+                    to="/infor"
+                    className="flex items-center justify-between w-full h-full p-3 mr-4"
+                  >
+                    <i className="text-xl">
+                      <MdAccountCircle />
+                    </i>
+                    Account
+                  </Link>
+                </button>
+                <button
+                  key="2"
+                  className="w-full h-[50px] flex items-center justify-between bg-white text-base font-semibold"
+                  onClick={onChange}
+                  >
+                    <Link
+                    to="/"
+                    className="flex items-center justify-between w-full h-full p-3 mr-4"
+                  >
+                    <i className="text-xl"><CiLogout /></i>
+                    Log out</Link>
+
+                </button>
               </div>
             )}
           >

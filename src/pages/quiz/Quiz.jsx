@@ -133,7 +133,7 @@ const Quiz = () => {
               Time Left: {Math.floor(timeLeft / 60)}:{timeLeft % 60}{" "}
             </p>
             <div>
-              <Link to="/">
+              <Link to="/home">
                 <button
                   type="submit"
                   className="mr-40 w-[100px] py-1 px-4 mx-auto bg-slate-400 font-semibold text-xl rounded-3xl"

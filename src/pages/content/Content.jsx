@@ -37,7 +37,7 @@ const Content = () => {
     // console.log(obj1);
     // ran = JSON.stringify([{,{unit: 2, check:false, random: [1,2,3,4,5]}}]);
     //find the check of current unit from localStorage
-    var rdf = rdfl.find((r) => r.unit == id);
+    if(rdfl) var rdf = rdfl.find((r) => r.unit == id);
     // if check is true, no impliment, otherwise set new random value to localStorage
     var random = [], result = [];
     var i = 0,
@@ -71,7 +71,7 @@ const Content = () => {
         }
       }
       const obj2 = { unit: id, check: false, random: random, result: result, pass: false};
-      localStorage.setItem("randomQuizUnit", JSON.stringify([...rdfl, obj2]));
+      if(rdfl) localStorage.setItem("randomQuizUnit", JSON.stringify([...rdfl, obj2]));
       console.log(obj2);
     } else {
       console.log("renew not oke");
