@@ -72,7 +72,7 @@ const HeaderContent = ({ id }) => {
   return (
     <div className="relative">
       <div className="fixed w-full h-12 bg-neutral-400 top-0 left-0 right-0 flex items-center justify-between px-6 z-1">
-        <div className="flex">
+        <div className="flex input__search">
           <i className="text-3xl px-2 font-medium text-black">
             <Link to={linkback}>
               <RiSkipBackMiniFill />
@@ -89,11 +89,7 @@ const HeaderContent = ({ id }) => {
             </Link>
           </i>
         </div>
-        <input
-          type="text"
-          placeholder="Search"
-          className="w-[300px] h-10 p-4 rounded-2xl placeholder:font-semibold font-semibold text-black input__search"
-        />
+        
         <div className="flex items-center h-full w-[120px] justify-around">
           <h3 className="text-black font-semibold">Hello user</h3>
           <Tippy
