@@ -26,3 +26,16 @@
 .menu__items button:last-child {
     border-bottom: 1px solid #ccc;
 }
+.wrapper {
+    width: 100%;
+    background-color: rgb(255,255,255);
+    box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
+    border-radius: 8px;
+    max-height: min((100vh - 96px) - 60px, 734px);
+    min-height: 50px;
+
+    .wrapper__item:hover {
+        background-color: rgba(230, 233, 233, 0.89);
+        cursor: pointer;
+    }
+}

@@ -62,7 +62,7 @@ const Home = () => {
                 <div className="flex justify-center pt-5">
                   <img
                     className="user__avatar"
-                    src="https://kenh14cdn.com/k:thumb_w/600/TL38uwXjcccccccccccccbWaiFYccc/Image/2013/12/1-93680/buc-anh-thay-doi-nhan-thuc-cua-cong-chung-ve-thien-tai-einstein.jpg"
+                    src="https://thumbs.gfycat.com/BoilingUnawareBedbug-max-1mb.gif"
                     alt="user"
                   />
                 </div>

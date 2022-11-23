@@ -9,7 +9,7 @@ import { MdSkipNext } from "react-icons/md";
 import { RiSkipBackMiniFill } from "react-icons/ri";
 import { RiHomeLine } from "react-icons/ri";
 import { useNavigate, Navigate } from "react-router-dom";
-
+import useDebounce from "../useDebounce";
 
 const MENU_ITEMS = [
   {
